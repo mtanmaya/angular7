@@ -5,3 +5,9 @@
     </nav>
   </div>
 </header>
+<ul *ngIf=caches>
+  <li *ngFor="let cache of caches.data">
+    <img [src]="cache.avatar">
+    <p>{{ cache.first_name }} {{ cache.last_name }}</p>
+  </li>
+</ul>

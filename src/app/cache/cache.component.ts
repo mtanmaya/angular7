@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestService } from '../rest.service';
 
 @Component({
   selector: 'app-cache',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CacheComponent implements OnInit {
 
-  constructor() { }
+  caches: Object;
+
+  constructor(private data: RestService) { }
 
   ngOnInit() {
+    this.data.getCaches().subscribe(data => {
+      this.caches = data;
+    });
   }
-
 }
